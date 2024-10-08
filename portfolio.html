@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Portfolio Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        .form-group input[type="file"] {
+            padding: 5px;
+        }
+        .form-group .checkbox-group, .form-group .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .form-group .checkbox-group label, .form-group .radio-group label {
+            margin-right: 10px;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Portfolio Submission Form</h2>
+        <form action="submit_portfolio.php" method="POST" enctype="multipart/form-data">
+
+            <!-- Personal Information -->
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required>
+            </div>
+
+            <!-- Work Experience -->
+            <div class="form-group">
+                <label for="experience">Work Experience:</label>
+                <textarea id="experience" name="experience" placeholder="Describe your work experience here..." required></textarea>
+            </div>
+
+            <!-- Skills -->
+            <div class="form-group">
+                <label for="skills">Select Your Skills:</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
+                    <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
+                    <label><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label>
+                    <label><input type="checkbox" name="skills" value="Python"> Python</label>
+                    <label><input type="checkbox" name="skills" value="Java"> Java</label>
+                    <label><input type="checkbox" name="skills" value="C++"> C++</label>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="form-group">
+                <label for="education">Education Level:</label>
+                <select id="education" name="education" required>
+                    <option value="">--Select--</option>
+                    <option value="High School">High School</option>
+                    <option value="Bachelor's">Bachelor's Degree</option>
+                    <option value="Master's">Master's Degree</option>
+                    <option value="PhD">PhD</option>
+                </select>
+            </div>
+
+            <!-- Portfolio Link -->
+            <div class="form-group">
+                <label for="portfolio">Portfolio Website (Optional):</label>
+                <input type="url" id="portfolio" name="portfolio" placeholder="https://example.com">
+            </div>
+
+            <!-- Upload Resume -->
+            <div class="form-group">
+                <label for="resume">Upload Resume (PDF):</label>
+                <input type="file" id="resume" name="resume" accept="application/pdf" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit Portfolio</button>
+        </form>
+    </div>
+
+</body>
+</html>
